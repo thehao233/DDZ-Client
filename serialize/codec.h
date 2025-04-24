@@ -9,6 +9,7 @@
 struct Message
 {
     QByteArray username;
+    QByteArray roomname;
     QByteArray data1;
     QByteArray data2;
     QByteArray data3;

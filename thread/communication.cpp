@@ -146,7 +146,6 @@ void Communication::parseRecvMessage()
 void Communication::handleRsaFenfa(QSharedPointer<Message> msgPtr)
 {
     /** 处理密钥分发操作 */
-
     qDebug() << "开始处理密钥分发操作...";
 
     // 首先对服务器发送的数字签名进行校验
