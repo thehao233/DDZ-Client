@@ -124,6 +124,11 @@ void login::startConnect(Message *msg)
             // 跳转到模式选择界面
             qDebug() << "开始跳转到模式选择界面....";
             GameMode* mode = new GameMode;
+            connect(mode, &GameMode::autoJoinRoom, this, [=]{
+                qDebug() << "加入随机房间....";
+                autoJoinRoom();
+            });
+
             mode->show();
             // 隐藏用户登录界面
             accept();
@@ -200,6 +205,16 @@ void login::onRegister()
         // 连接服务器
         startConnect(&msg);
     }
+}
+
+void login::autoJoinRoom()
+{
+    qDebug() << "autoJoinRoom";
+    Message msg;
+    msg.username = DataManager::getInstance()->getUserName();
+    msg.reqCode = RequestCode::AutoRoom;
+    qDebug() << "autoJoinRoom, username:" << msg.username;
+    DataManager::getInstance()->getCommunication()->sendMsg(&msg);
 }
 
 void login::updateIpPort()

@@ -16,6 +16,7 @@ QByteArray Codec::encodeMsg(Message *uncodedMsg)
 {
     // 设置编解码器数据
     m_inf.set_username(uncodedMsg->username.toStdString());
+    m_inf.set_roomname(uncodedMsg->roomname.toStdString());
     m_inf.set_data1(uncodedMsg->data1.toStdString());
     m_inf.set_data2(uncodedMsg->data2.toStdString());
     m_inf.set_data3(uncodedMsg->data3.toStdString());
@@ -37,6 +38,7 @@ QSharedPointer<Message> Codec::decodeMsg(QByteArray codedMsg)
     // 设置编码后的数据
     QSharedPointer<Message> uncodeMsg(new Message);
     uncodeMsg->username = QByteArray::fromStdString(m_inf.username());
+    uncodeMsg->roomname = QByteArray::fromStdString(m_inf.roomname());
     uncodeMsg->data1 = QByteArray::fromStdString(m_inf.data1());
     uncodeMsg->data2 = QByteArray::fromStdString(m_inf.data2());
     uncodeMsg->data3 = QByteArray::fromStdString(m_inf.data3());

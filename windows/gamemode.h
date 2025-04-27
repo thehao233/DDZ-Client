@@ -16,6 +16,10 @@ public:
     explicit GameMode(QWidget *parent = nullptr);
     ~GameMode();
 
+signals:
+    void autoJoinRoom();
+    void startGame();
+
 private:
     void closeEvent(QCloseEvent* ev);
 

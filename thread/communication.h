@@ -31,6 +31,7 @@ public:
     enum KeyLen{L16 = 16, L24=24, L32=32};    // 秘钥长度
     QByteArray generateAesKey(KeyLen len);
 
+    // 处理用户登录
     void handleLogin();
 
 protected:

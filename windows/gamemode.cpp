@@ -30,9 +30,10 @@ GameMode::GameMode(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->roomSelectPage);
     });
 
-    // 自动加入某个房间
+    // 随机加入某个房间
     connect(ui->autoRoomBtn, &QPushButton::clicked, this, [=]{
-
+        emit autoJoinRoom();
+        qDebug() << "开始随机加入一个房间.....";
     });
     // 手动加入某个房间
     connect(ui->createRoomBtn, &QPushButton::clicked, this, [=]{

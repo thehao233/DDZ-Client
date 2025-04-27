@@ -29,6 +29,9 @@ private:
     // 处理注册事件
     void onRegister();
 
+    // 处理加入随机房间事件
+    void autoJoinRoom();
+
     // 更新全局数据中的ip和port
     void updateIpPort();
     // 更新全局数据中的username和password

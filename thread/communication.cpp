@@ -132,6 +132,12 @@ void Communication::parseRecvMessage()
         emit registerOK();
         qDebug() << "用户注册成功...";
         break;
+    case ResponseCode::JoinRoomOK:
+        qDebug() << "加入房间成功..." << "   房间中名为:" << msgPtr->roomname << "  人数为:" << msgPtr->data1;
+        break;
+    case ResponseCode::StartGame:
+        qDebug() << "开始游戏.....";
+        break;
     case ResponseCode::Failed:
         // 发射信号， 弹出错误窗口
         emit failedMsg(msgPtr->data1);
